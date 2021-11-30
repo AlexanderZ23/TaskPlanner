@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Threading;
 using System.Threading.Tasks;
-using TaskPlanner.Domain;
+using TaskPlanner.Domain.Models;
 
 namespace TaskPlanner.Application.Interfaces
 {

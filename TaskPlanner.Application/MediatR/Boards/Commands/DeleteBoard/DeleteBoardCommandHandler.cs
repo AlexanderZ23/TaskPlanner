@@ -4,6 +4,7 @@ using System.Threading;
 using System.Threading.Tasks;
 using TaskPlanner.Application.Common.Exceptions;
 using TaskPlanner.Application.Interfaces;
+using TaskPlanner.Domain.Models;
 
 namespace TaskPlanner.Application.MediatR.Boards.Commands.DeleteBoard
 {
@@ -20,9 +21,9 @@ namespace TaskPlanner.Application.MediatR.Boards.Commands.DeleteBoard
         {
             var board = await context.Boards.FirstOrDefaultAsync(b => b.Id == request.Id, cancellationToken);
 
-            if (board == null || board.UserId == request.UserId)
+            if (board == null || board.CreatorId == request.CreatorId)
             {
-                throw new BoardNotFoundException(nameof(board), request.Id);
+                throw new BoardNotFoundException(nameof(Board), request.Id);
             }
 
             context.Boards.Remove(board);

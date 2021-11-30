@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 using TaskPlanner.Application.Common.Mapping;
-using TaskPlanner.Domain;
+using TaskPlanner.Domain.Models;
 
 namespace TaskPlanner.Application.MediatR.Boards.Queries.GetBoardDetails
 {
@@ -11,11 +11,13 @@ namespace TaskPlanner.Application.MediatR.Boards.Queries.GetBoardDetails
         public int Id { get; set; }
         public string Title { get; set; }
         public string Details { get; set; }
+        public bool IsPrivate { get; set; }
         public DateTime CreatedOn { get; set; }
         public DateTime? UpdatedOn { get; set; }
-        public List<CardsListVm> Cards { get; set; }
+        public List<Card> Cards { get; set; }
+        public List<TaskPlannerUser> Users { get; set; }
 
-       /* public void Mapping(Profile profile)
+        public void Mapping(Profile profile)
         {
             profile.CreateMap<Board, BoardDetailsVm>()
                 .ForMember(boardVm => boardVm.Id, opt => opt.MapFrom(board => board.Id))
@@ -23,10 +25,10 @@ namespace TaskPlanner.Application.MediatR.Boards.Queries.GetBoardDetails
                 .ForMember(boardVm => boardVm.Details, opt => opt.MapFrom(board => board.Details))
                 .ForMember(boardVm => boardVm.CreatedOn, opt => opt.MapFrom(board => board.CreatedOn))
                 .ForMember(boardVm => boardVm.UpdatedOn, opt => opt.MapFrom(board => board.UpdatedOn))
+                .ForMember(boardVm => boardVm.IsPrivate, opt => opt.MapFrom(board => board.IsPrivate))
                 .ForMember(boardVm => boardVm.Cards, opt => opt.MapFrom(board => board.Cards))
-
-
-        }*/
+                .ForMember(boardVm => boardVm.Users, opt => opt.MapFrom(board => board.Users));
+        }
 
     }
 }

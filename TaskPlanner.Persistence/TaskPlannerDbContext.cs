@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using TaskPlanner.Application.Interfaces;
-using TaskPlanner.Domain;
+using TaskPlanner.Domain.Models;
+using TaskPlanner.Domain.RelatedEntities;
 using TaskPlanner.Persistence.EntityTypesConfiguration;
 
 namespace TaskPlanner.Persistence
@@ -17,6 +18,7 @@ namespace TaskPlanner.Persistence
         {
             builder.ApplyConfiguration(new BoardConfiguration());
             builder.ApplyConfiguration(new CardConfiguration());
+            builder.ApplyConfiguration(new TaskPlannerUserConfiguration());
             base.OnModelCreating(builder);
         }
 

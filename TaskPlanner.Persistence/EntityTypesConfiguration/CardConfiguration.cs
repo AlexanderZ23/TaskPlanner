@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore;
-using TaskPlanner.Domain;
+using TaskPlanner.Domain.Models;
 
 namespace TaskPlanner.Persistence.EntityTypesConfiguration
 {
